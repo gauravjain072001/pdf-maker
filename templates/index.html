@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Maker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>PDF Maker</h1>
+      <form id="pdfForm">
+        <label>
+          Title
+          <input id="title" type="text" value="Project Summary" />
+        </label>
+        <label>
+          Author
+          <input id="author" type="text" value="Gaurav Jain" />
+        </label>
+        <label>
+          Content
+          <textarea id="content" rows="14" placeholder="Write your report content here...">Project overview: This tool helps teams turn structured notes into polished PDFs for sharing.</textarea>
+        </label>
+        <button type="submit">Generate PDF</button>
+      </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
