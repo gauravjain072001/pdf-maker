@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF Maker Demo</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#172225;background:#e9f0ee}*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:32px 18px;background:linear-gradient(135deg,#d7e9e1,#e9f0ee 45%,#f1e5d7)}main{width:min(820px,100%);margin:0 auto;background:#fff;border:1px solid #c8d4d0;border-radius:12px;box-shadow:0 22px 60px #1722251c;overflow:hidden}.head{padding:24px 28px;background:#173b37;color:#f3f8f6}.head h1{margin:0;font-size:24px}.head p{margin:6px 0 0;color:#c0d7d0}.form{padding:26px 28px;display:grid;gap:18px}label{display:grid;gap:7px;font-weight:650}input,textarea{width:100%;border:1px solid #aabbb5;border-radius:8px;padding:12px;font:inherit}textarea{resize:vertical;min-height:280px;line-height:1.55}.actions{display:flex;justify-content:flex-end;gap:10px}button{border:0;border-radius:8px;padding:12px 18px;font:inherit;font-weight:700;background:#176d5a;color:white;cursor:pointer}.hint{font-size:13px;color:#53635e;margin:0}@media print{body{background:#fff;padding:0}main{width:100%;border:0;box-shadow:none}.head{background:#fff;color:#000;padding:0 0 16px}.head p,.form label,.actions,.hint{display:none!important}.form{padding:0}#preview{white-space:pre-wrap;min-height:0;border:0;padding:0;font:12pt/1.5 Georgia,serif}#preview-title{display:block!important;font-size:22pt;margin-bottom:12px}}
+  </style>
+</head>
+<body>
+  <main>
+    <header class="head"><h1>PDF Maker</h1><p>Turn a title and notes into a print-ready document.</p></header>
+    <form class="form" id="form">
+      <label>Document title<input id="title" value="Project Summary" required></label>
+      <label>Your content<textarea id="content" placeholder="Write or paste your document content..." required></textarea></label>
+      <h2 id="preview-title" style="display:none"></h2><div id="preview" style="display:none"></div>
+      <p class="hint">Choose “Save as PDF” in your browser’s print dialog.</p>
+      <div class="actions"><button type="submit">Create PDF</button></div>
+    </form>
+  </main>
+  <script>
+    document.getElementById('form').addEventListener('submit',event=>{event.preventDefault();const title=document.getElementById('title').value.trim();document.title=title;document.getElementById('preview-title').textContent=title;document.getElementById('preview').textContent=document.getElementById('content').value;window.print();});
+  </script>
+</body>
+</html>
